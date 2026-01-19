@@ -8,7 +8,7 @@ const FinalCTA = () => {
           Ready for a <span className="text-green-400">Better Web</span>?
         </h2>
         <p className="font-sans text-lg md:text-xl text-neutral-700 mb-12 text-pretty">
-          Join the waitlist to be among the first to experience the Utopian
+          Join the waitlist to be among the first to experience the Utopia
           Browser.
         </p>
         <a
