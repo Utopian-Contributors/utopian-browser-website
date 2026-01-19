@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono: monospace;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Retro button styles */
+.btn-retro {
+  border: 3px solid currentColor;
+}
+
+/* Code block terminal style */
+.code-terminal {
+  text-shadow: 0 0 8px oklch(79.52% 0.209 151.71 / 40%);
+}
