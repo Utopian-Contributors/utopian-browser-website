@@ -16,26 +16,12 @@ const DeveloperRewards = () => {
             </div>
             <div>
               <h3 className="font-serif text-xl md:text-2xl font-medium mb-2 text-balance">
-                Use Native Modules
-              </h3>
-              <p className="font-sans text-neutral-600 text-pretty">
-                Build websites that leverage native URLs. Smaller bundles mean
-                faster sites and happier users, and rewards for you.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-6 p-6 border border-neutral-700">
-            <div className="text-green-400 font-mono text-xl font-semibold shrink-0">
-              {">"}
-            </div>
-            <div>
-              <h3 className="font-serif text-xl md:text-2xl font-medium mb-2 text-balance">
                 Contribute to the Ecosystem
               </h3>
               <p className="font-sans text-neutral-600 text-pretty">
-                Publish optimized native modules. When developers use your code,
-                you earn from every execution.
+                $UTCC is the native token of the Utopian ecosystem. Earn it by
+                converting users into subscribers or by facilitating
+                transactions.
               </p>
             </div>
           </div>

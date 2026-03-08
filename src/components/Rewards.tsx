@@ -26,11 +26,11 @@ const Rewards = () => {
 
           <div className="p-8 border-4 border-neutral-950">
             <h3 className="font-serif text-2xl md:text-3xl font-medium mb-4 text-balance">
-              View Ads
+              Subscription Cashback
             </h3>
             <p className="font-sans text-neutral-700 mb-6 text-pretty">
-              Choose to see privacy-respecting advertisements. Every ad you view
-              puts money directly in your pocket, not just the platform's.
+              $UTCC subscribers get a portion of their subscription back as
+              rewards. The subscription is ad-free and bundles apps from the ecosystem.
             </p>
           </div>
         </div>

@@ -26,10 +26,10 @@ const Hero = () => {
             Goodbye Cookies
           </div>
           <h3 className="font-serif text-4xl font-medium mb-2">
-            Free Analytics
+            Privacy-friendly
           </h3>
           <p className="text-balance text-neutral-600 text-sm">
-            Browser-level telemetry, no tracking needed
+            Pseudonymous identity and analytics
           </p>
         </div>
         <div className="text-center">

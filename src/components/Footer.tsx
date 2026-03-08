@@ -8,20 +8,12 @@ const Footer = () => {
         </p>
         <div className="flex gap-6 font-sans text-sm">
           <a
-            href="https://turbine.utopian.build"
+            href="https://tribe.utopian.build"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-neutral-950 transition-colors"
           >
-            Turbine
-          </a>
-          <a
-            href="https://utopian.build"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-neutral-950 transition-colors"
-          >
-            utopian.build
+            Tribe SDK
           </a>
         </div>
       </div>
