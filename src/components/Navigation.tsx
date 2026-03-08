@@ -32,12 +32,6 @@ const Navigation = () => {
           >
             Rewards
           </a>
-          <a
-            href="#trading"
-            className="text-neutral-700 hover:text-neutral-950 text-sm font-medium"
-          >
-            Trading
-          </a>
         </div>
         <a
           href={WAITLIST_EMAIL}
