@@ -1,4 +1,4 @@
-import { WAITLIST_EMAIL } from "../constants";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -6,12 +6,12 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex gap-2 items-center">
           <img src="/utopia-icon-128.webp" className="h-10 w-10" />
-          <a
-            href="#"
+          <Link
+            to="/"
             className="font-serif text-2xl text-neutral-950 font-semibold"
           >
-            Utopia Browser
-          </a>
+            Utopian Browser
+          </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
           <a
@@ -33,12 +33,12 @@ const Navigation = () => {
             Rewards
           </a>
         </div>
-        <a
-          href={WAITLIST_EMAIL}
+        <Link
+          to="/download"
           className="bg-black text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition-colors"
         >
-          Join Waitlist
-        </a>
+          Download
+        </Link>
       </div>
     </nav>
   );

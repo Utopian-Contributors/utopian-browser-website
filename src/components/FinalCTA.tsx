@@ -1,4 +1,4 @@
-import { WAITLIST_EMAIL } from "../constants";
+import { Link } from "react-router-dom";
 
 const FinalCTA = () => {
   return (
@@ -8,15 +8,14 @@ const FinalCTA = () => {
           Ready for a <span className="text-green-400">Better Web</span>?
         </h2>
         <p className="font-sans text-lg md:text-xl text-neutral-700 mb-12 text-pretty">
-          Join the waitlist to be among the first to experience the Utopia
-          Browser.
+          Download the Utopian Browser and experience a better web today.
         </p>
-        <a
-          href={WAITLIST_EMAIL}
+        <Link
+          to="/download"
           className="btn-retro inline-block bg-green-400 text-neutral-50 font-semibold text-xl px-12 py-5 hover:bg-green-500 tracking-wider"
         >
-          Join Waitlist
-        </a>
+          Download
+        </Link>
       </div>
     </section>
   );
