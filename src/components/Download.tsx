@@ -15,8 +15,11 @@ const Download = () => {
           <p className="font-sans text-lg md:text-xl text-neutral-700 mb-4">
             Version 1.0 for macOS
           </p>
-          <p className="font-sans text-sm text-neutral-500 mb-12">
+          <p className="font-sans text-sm text-neutral-500 mb-2">
             Based on Firefox 150.0 &middot; en-US &middot; .dmg
+          </p>
+          <p className="font-sans text-sm text-neutral-500 mb-12">
+            Currently only available for Apple Silicon (ARM) Macs.
           </p>
           <a
             href={DOWNLOAD_URL}
