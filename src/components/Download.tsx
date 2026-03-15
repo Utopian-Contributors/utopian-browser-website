@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 
-const DOWNLOAD_URL = "/utopian-150.0.en-US.mac.dmg";
+const DOWNLOAD_URL = "https://utopian-mar-host.fra1.cdn.digitaloceanspaces.com/utopian-150.0.en-US.mac.dmg";
 
 const Download = () => {
   return (
