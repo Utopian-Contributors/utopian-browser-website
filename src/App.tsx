@@ -1,5 +1,5 @@
+import { useTitle } from "./useTitle";
 import Analytics from "./components/Analytics";
-import DeveloperRewards from "./components/DeveloperRewards";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -8,15 +8,19 @@ import Navigation from "./components/Navigation";
 import Rewards from "./components/Rewards";
 
 const App = () => {
+  useTitle("");
   return (
-    <main className="font-sans">
+    <main className="font-sans bg-white">
       <Navigation />
       <Hero />
-      <NativeUrls />
-      <Analytics />
-      <Rewards />
-      <DeveloperRewards />
-      <FinalCTA />
+      <section className="px-6 py-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          <NativeUrls />
+          <Analytics />
+          <Rewards />
+          <FinalCTA />
+        </div>
+      </section>
       <Footer />
     </main>
   );

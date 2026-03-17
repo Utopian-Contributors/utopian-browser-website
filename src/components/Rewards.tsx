@@ -1,41 +1,26 @@
+import { Link } from "react-router-dom";
+
 const Rewards = () => {
   return (
-    <section
-      id="rewards"
-      className="bg-neutral-50 text-neutral-950 py-20 md:py-28 px-6"
-    >
-      <div className="max-w-5xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-center mb-6 text-balance">
-          Browse and <span className="text-green-400">Earn</span>
-        </h2>
-        <p className="font-sans text-lg md:text-xl text-neutral-600 text-center max-w-3xl mx-auto mb-16 text-pretty">
-          Your attention and data have value. Get paid for it, on your terms.
-        </p>
+    <div className="bg-neutral-100 rounded-3xl p-8 md:p-10 flex flex-col">
+      <h2 className="text-3xl md:text-4xl font-bold text-neutral-950 mb-4 tracking-tight text-balance">
+        Browse and <span className="text-green-400">Earn</span>
+      </h2>
+      <p className="text-base md:text-lg text-neutral-500 mb-8 text-pretty">
+        A more efficient web creates real value. Utopian lets users and
+        developers share in that value through telemetry rewards,
+        subscription cashback, and usage-based compensation.
+      </p>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-          <div className="p-8 border-4 border-neutral-950">
-            <h3 className="font-serif text-2xl md:text-3xl font-medium mb-4 text-balance">
-              Share Telemetry
-            </h3>
-            <p className="font-sans text-neutral-700 mb-6 text-pretty">
-              Opt in to share more detailed, anonymized browsing data. This data
-              helps improve advertising relevance without compromising your
-              identity.
-            </p>
-          </div>
-
-          <div className="p-8 border-4 border-neutral-950">
-            <h3 className="font-serif text-2xl md:text-3xl font-medium mb-4 text-balance">
-              Subscription Cashback
-            </h3>
-            <p className="font-sans text-neutral-700 mb-6 text-pretty">
-              $UTCC subscribers get a portion of their subscription back as
-              rewards. The subscription is ad-free and bundles apps from the ecosystem.
-            </p>
-          </div>
-        </div>
+      <div className="mt-auto">
+        <Link
+          to="/rewards"
+          className="inline-block bg-neutral-950 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-neutral-800 transition-colors"
+        >
+          Learn more
+        </Link>
       </div>
-    </section>
+    </div>
   );
 };
 
