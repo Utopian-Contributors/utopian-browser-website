@@ -11,8 +11,8 @@ const Download = () => {
       <Navigation />
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-950 mb-6 tracking-tight">
-            Download <span className="text-green-400">Utopian Browser</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-950 mb-6 tracking-tight text-balance">
+            Download the <span className="text-green-400">Utopian Browser</span>
           </h1>
           <p className="text-lg md:text-xl text-neutral-500 mb-4">
             Version 1.0 for macOS
