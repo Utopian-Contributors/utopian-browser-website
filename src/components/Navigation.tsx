@@ -38,6 +38,12 @@ const Navigation = () => {
           >
             About
           </Link>
+          <Link
+            to="/blog"
+            className="text-neutral-500 hover:text-neutral-950 text-sm font-medium transition-colors"
+          >
+            Blog
+          </Link>
         </div>
         <Link
           to="/download"
