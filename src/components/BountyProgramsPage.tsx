@@ -35,9 +35,18 @@ const ProgramCard = ({ program }: { program: BountyProgram }) => (
 
 const INITIAL_FORM = {
   selectedProgram: "",
-  links: "",
+  links: [""],
   xHandle: "",
   walletAddress: "",
+};
+
+const isValidUrl = (s: string) => {
+  try {
+    const url = new URL(s);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
 };
 
 const BountyProgramsPage = () => {
@@ -57,8 +66,11 @@ const BountyProgramsPage = () => {
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!form.selectedProgram) errs.selectedProgram = "Select a program.";
-    if (!form.links.trim()) {
+    const filledLinks = form.links.filter((l) => l.trim());
+    if (filledLinks.length === 0) {
       errs.links = "Add at least one link.";
+    } else if (filledLinks.some((l) => !isValidUrl(l.trim()))) {
+      errs.links = "One or more links are not valid URLs.";
     }
     if (!form.xHandle.trim()) errs.xHandle = "Enter your X handle.";
     if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(form.walletAddress.trim())) {
@@ -76,10 +88,7 @@ const BountyProgramsPage = () => {
     setSubmitting(true);
     const payload = {
       program: form.selectedProgram,
-      links: form.links
-        .split("\n")
-        .map((l) => l.trim())
-        .filter(Boolean),
+      links: form.links.map((l) => l.trim()).filter(Boolean),
       xHandle: form.xHandle.replace(/^@/, ""),
       walletAddress: form.walletAddress.trim(),
       submittedAt: new Date().toISOString(),
@@ -320,15 +329,36 @@ const BountyProgramsPage = () => {
                   <label className="block text-neutral-300 text-sm font-medium mb-2">
                     Links to your work
                   </label>
-                  <textarea
-                    value={form.links}
-                    onChange={(e) =>
-                      setForm({ ...form, links: e.target.value })
-                    }
-                    placeholder="https://dev.to/your-article&#10;https://x.com/your-post"
-                    rows={4}
-                    className="w-full bg-neutral-900 text-white border border-neutral-800 rounded-xl px-4 py-3 focus:outline-none focus:border-green-400 transition-colors resize-none placeholder:text-neutral-600"
-                  />
+                  <div className="space-y-2">
+                    {form.links.map((link, i) => (
+                      <input
+                        key={i}
+                        type="url"
+                        value={link}
+                        onChange={(e) => {
+                          const next = [...form.links];
+                          next[i] = e.target.value;
+                          setForm({ ...form, links: next });
+                        }}
+                        onBlur={() => {
+                          const value = form.links[i].trim();
+                          // Add a new empty input if this is the last one and has a valid URL
+                          if (i === form.links.length - 1 && isValidUrl(value)) {
+                            setForm({ ...form, links: [...form.links, ""] });
+                          }
+                          // Remove empty inputs (except if it's the only one)
+                          if (!value && form.links.length > 1) {
+                            setForm({
+                              ...form,
+                              links: form.links.filter((_, j) => j !== i),
+                            });
+                          }
+                        }}
+                        placeholder="https://dev.to/your-article"
+                        className="w-full bg-neutral-900 text-white border border-neutral-800 rounded-xl px-4 py-3 focus:outline-none focus:border-green-400 transition-colors placeholder:text-neutral-600"
+                      />
+                    ))}
+                  </div>
                   {errors.links && (
                     <p className="text-red-400 text-sm mt-1">{errors.links}</p>
                   )}
