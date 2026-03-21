@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { bountyPrograms } from "../bountyPrograms";
 import { useTitle } from "../useTitle";
 import Footer from "./Footer";
 import Navigation from "./Navigation";
@@ -109,6 +110,55 @@ const RewardsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bounty programs */}
+      <section className="px-6 py-10">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">
+            Bounties
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-950 mb-4 tracking-tight text-balance">
+            Earn SOL by contributing
+          </h2>
+          <p className="text-lg text-neutral-600 max-w-3xl mb-10 text-pretty">
+            Complete bounty-style tasks — build apps, write articles, or spread
+            the word — and earn SOL rewards for your contributions.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {bountyPrograms.map((program) => (
+              <Link
+                key={program.id}
+                to={`/bounty-programs?program=${program.id}#submit`}
+                className="bg-neutral-950 text-white rounded-3xl p-8 md:p-10 flex flex-col hover:bg-neutral-900 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-balance">
+                    {program.title}
+                  </h3>
+                  <span className="shrink-0 bg-green-400 text-neutral-950 text-sm font-semibold px-3 py-1 rounded-full">
+                    {program.reward}
+                  </span>
+                </div>
+                <p className="text-neutral-400 text-pretty text-lg mb-4">
+                  {program.description}
+                </p>
+                <p className="text-neutral-500 text-sm">
+                  <span className="text-neutral-400 font-medium">Advice:</span>{" "}
+                  {program.advice}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            to="/bounty-programs"
+            className="inline-block bg-neutral-950 text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-neutral-800 transition-colors"
+          >
+            Submit your work
+          </Link>
         </div>
       </section>
 
