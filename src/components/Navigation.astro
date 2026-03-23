@@ -27,7 +27,7 @@ const latestPosts = posts.slice(0, 3);
       </a>
       <a
         href="/download"
-        class="hidden md:inline-block btn-primary btn-sm"
+        class="hidden lg:inline-block btn-primary btn-sm"
       >
         Download
       </a>
@@ -70,11 +70,11 @@ const latestPosts = posts.slice(0, 3);
           href="https://raydium.io/swap/?outputMint=UTCCbKMQQManiiSs7fjPBKoNBbZRzwFPmjrgmAaFhxP"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-secondary-light btn-sm"
+          class="hidden md:inline-flex btn-secondary-light btn-sm"
         >
           Buy $UTCC
         </a>
-        <a href="/download" class="btn-primary-light btn-sm">
+        <a href="/download" class="hidden md:inline-flex btn-primary-light btn-sm">
           Download
         </a>
         <button
@@ -106,7 +106,7 @@ const latestPosts = posts.slice(0, 3);
           Sitemap
         </p>
       </div>
-      <div class="py-3 flex items-center justify-between">
+      <div class="hidden md:flex py-3 items-center justify-between">
         <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
           Latest news
         </p>
@@ -117,7 +117,7 @@ const latestPosts = posts.slice(0, 3);
           Explore articles
         </a>
       </div>
-      <div class="py-3 pl-6 flex items-center justify-between">
+      <div class="hidden md:flex py-3 pl-6 items-center justify-between">
         <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
           Tribe SDK
         </p>
@@ -134,7 +134,7 @@ const latestPosts = posts.slice(0, 3);
   </div>
 
   <!-- Content grid -->
-  <div class="max-w-[1400px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-0">
+  <div class="max-w-[1400px] mx-auto px-6 pt-4 pb-10 md:py-10 grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-0">
 
     <!-- Sitemap -->
     <div>
@@ -217,7 +217,7 @@ const latestPosts = posts.slice(0, 3);
     </div>
 
     <!-- Latest posts -->
-    <div class="space-y-3">
+    <div class="hidden md:block space-y-3">
       {latestPosts.map((post) => (
         <a
           href={`/blog/${post.id}`}
@@ -250,7 +250,7 @@ const latestPosts = posts.slice(0, 3);
     </div>
 
     <!-- Featured: Tribe SDK -->
-    <div class="pl-6">
+    <div class="hidden md:block pl-6">
       <a
         href="https://tribe.utopian.build"
         target="_blank"
