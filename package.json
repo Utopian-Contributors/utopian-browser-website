@@ -1,36 +1,29 @@
 {
   "name": "utopian-browser-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build && utopian-minify",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build && utopian-minify",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@tribecloud/sdk": "^1.1.7",
+    "@astrojs/mdx": "5.0.2",
+    "@astrojs/react": "5.0.1",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/tailwind": "6.0.2",
+    "@tribecloud/sdk": "1.1.8",
+    "astro": "6.0.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.1",
+    "tailwindcss": "^4.1.18",
     "utopian-minify": "^0.0.5"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
     "@tailwindcss/vite": "^4.1.18",
-    "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react-swc": "^4.2.2",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "serve": "^14.2.6",
-    "tailwindcss": "^4.1.18",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "typescript": "~5.9.3"
   }
 }
