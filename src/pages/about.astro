@@ -1,0 +1,118 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="About" description="Utopian Contributors LLC builds open technology for a more efficient web.">
+  <!-- About -->
+  <section class="px-6 pt-32 md:pt-48 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6">
+        About
+      </p>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-16 max-w-3xl">
+        Utopian Contributors
+      </h1>
+
+      <div class="max-w-2xl space-y-8 text-neutral-600 text-lg leading-relaxed">
+        <p>
+          Utopian Contributors LLC builds open technology for a more efficient web. Our work focuses on eliminating waste at the browser level and giving developers infrastructure they can rely on without vendor lock-in.
+        </p>
+
+        <p>
+          The core problem is simple: the web wastes more bandwidth than it needs to. Every site re-downloads the same JavaScript libraries, the same fonts, the same frameworks. A visitor hits ten sites in a morning and their browser fetches React ten times, loads Inter ten times, pulls the same polyfills ten times. That waste hits hardest in low-bandwidth environments, on metered data plans, and in regions where connectivity is unreliable.
+        </p>
+
+        <p>
+          Our approach: instead of asking every website to optimize independently, we fix the problem where it belongs: in the browser itself. Common libraries ship built in. Privacy is the default. Analytics work without tracking scripts. The result is a browser that makes every site faster without requiring a single line of code from developers.
+        </p>
+
+        <p>
+          Beyond the browser, we build Tribe SDK, a set of drop-in services that replace the scattered infrastructure most developers cobble together from multiple vendors. Authentication, analytics, feature flags, feedback. One package, no backend to manage. It works with any framework and deploys in minutes, not weeks.
+        </p>
+
+        <p>
+          Our mission is connecting the world. Over a billion people have limited access to the internet. Making websites 90% smaller isn't just a performance improvement. It's an accessibility improvement for the people who need the web most. Every kilobyte saved is a page that loads on a 2G connection, a student who can access course materials, a family that stays connected without burning through their data plan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section data-animate class="px-6 py-20 border-t border-neutral-100">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6">
+        Team
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start gap-8">
+        <img
+          src="/ludwig.jpg"
+          alt="Ludwig Schubert"
+          class="w-28 h-28 object-cover grayscale"
+        />
+        <div>
+          <h3 class="text-xl font-bold mb-1">Ludwig Schubert</h3>
+          <p class="text-neutral-500 mb-4">Founder</p>
+          <div class="flex flex-wrap gap-4 font-mono text-sm">
+            <a
+              href="https://x.com/UtopianContrib"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-500 hover:text-neutral-950 transition-colors"
+            >
+              X @UtopianContrib
+            </a>
+            <a
+              href="https://github.com/geistinme"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-500 hover:text-neutral-950 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ludwig-schubert-2034542bb/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-500 hover:text-neutral-950 transition-colors"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section data-animate class="px-6 py-20 border-t border-neutral-100">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6">
+        Contact
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+        Get in touch
+      </h2>
+      <a
+        href="mailto:ludwig@utopiancontrib.com"
+        class="font-mono text-lg text-neutral-500 hover:text-neutral-950 transition-colors"
+      >
+        ludwig@utopiancontrib.com
+      </a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ludwig Schubert",
+    jobTitle: "Founder",
+    affiliation: { "@type": "Organization", name: "Utopian Contributors LLC" },
+    url: "https://utopian.build/about",
+    sameAs: [
+      "https://x.com/UtopianContrib",
+      "https://github.com/geistinme",
+      "https://www.linkedin.com/in/ludwig-schubert-2034542bb/"
+    ]
+  })} />
+</Base>

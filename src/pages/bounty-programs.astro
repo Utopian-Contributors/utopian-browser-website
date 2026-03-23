@@ -1,0 +1,117 @@
+---
+import Base from "../layouts/Base.astro";
+import BountyForm from "../components/BountyForm";
+import { bountyPrograms } from "../bountyPrograms";
+
+const categories = [
+  { key: "code" as const, label: "Code" },
+  { key: "marketing" as const, label: "Marketing" },
+];
+---
+
+<Base title="Bounty Programs">
+  <!-- Hero -->
+  <section class="pt-24 pb-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4">
+        Contribute & earn
+      </p>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+        Bounty Programs
+      </h1>
+      <p class="text-neutral-500 text-lg max-w-xl">
+        Complete bounty-style tasks, submit your work, and earn SOL for
+        contributing to the Utopian ecosystem.
+      </p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section data-animate class="px-6 py-16 border-t border-neutral-200">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-px bg-neutral-200">
+      <div class="bg-neutral-950 text-white p-8">
+        <p class="font-mono text-green-400 text-sm mb-4">01</p>
+        <h3 class="text-xl font-bold mb-3">Complete the Task</h3>
+        <p class="text-neutral-400">
+          Pick a bounty below and implement the task. Build something, write an
+          article, or spread the word about the Utopian ecosystem.
+        </p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="font-mono text-neutral-400 text-sm mb-4">02</p>
+        <h3 class="text-xl font-bold mb-3">Submit Your Work</h3>
+        <p class="text-neutral-500">
+          Use the form below to submit links to your work along with your X
+          handle and Solana wallet address so we can send your reward.
+        </p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="font-mono text-neutral-400 text-sm mb-4">03</p>
+        <h3 class="text-xl font-bold mb-3">Tag @UtopianContrib</h3>
+        <p class="text-neutral-500">
+          Share your contribution on X and tag{" "}
+          <a
+            href="https://x.com/UtopianContrib"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-green-500 hover:text-green-600 transition-colors"
+          >
+            @UtopianContrib
+          </a>{" "}
+          with related links so the community can see your work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ongoing programs -->
+  <section data-animate class="px-6 py-16">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4">
+        Ongoing programs
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+        Pick a bounty and start building
+      </h2>
+
+      {categories.map((cat) => {
+        const programs = bountyPrograms.filter((p) => p.category === cat.key);
+        if (programs.length === 0) return null;
+        return (
+          <div class="mb-12">
+            <h3 class="font-mono text-sm uppercase tracking-widest text-neutral-400 mb-6">
+              {cat.label}
+            </h3>
+            <div class="grid md:grid-cols-2 gap-px bg-neutral-200">
+              {programs.map((program) => (
+                <div class="bg-neutral-950 text-white p-8">
+                  <div class="flex items-center gap-3 mb-4">
+                    <h4 class="text-lg font-bold">{program.title}</h4>
+                    <span class="shrink-0 bg-green-400 text-neutral-950 text-xs font-mono font-semibold px-2.5 py-0.5">
+                      {program.reward}
+                    </span>
+                  </div>
+                  <p class="text-neutral-400 mb-4">{program.description}</p>
+                  <p class="text-neutral-500 text-sm">
+                    <span class="text-neutral-400 font-medium">Advice:</span>{" "}
+                    {program.advice}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Submission form -->
+  <section data-animate class="px-6 py-16" id="submit">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6">
+        Submit your work
+      </p>
+      <BountyForm client:only="react" />
+    </div>
+  </section>
+</Base>

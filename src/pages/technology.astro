@@ -1,0 +1,579 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Technology Stack">
+  <!-- Hero -->
+  <section
+    class="relative min-h-screen flex items-end pb-16 md:pb-24 px-6 overflow-hidden"
+  >
+    <img
+      src="/farmer.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
+    >
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto w-full text-center">
+      <h1
+        class="text-5xl md:text-7xl font-thin text-white tracking-tight leading-[1.05]"
+      >
+        The Utopian<br />technology stack
+      </h1>
+      <p
+        class="font-mono text-white text-xs md:text-sm max-w-xl mx-auto mt-6 leading-relaxed"
+      >
+        Open by design. Built for efficiency. A browser and an SDK working
+        together to make the web smaller, faster, and fairer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <a href="/download" class="btn-primary-light">
+          Install the browser →
+        </a>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary-light"
+        >
+          Explore the SDK →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Large statement -->
+  <section data-animate class="px-6 py-24 md:py-40">
+    <div class="max-w-[1200px] mx-auto">
+      <h2
+        class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+      >
+        <span class="text-neutral-950">The Utopian technology stack</span>
+        <span class="text-neutral-300">
+          is a unified ecosystem that's efficient by default and built for real
+          use.</span
+        >
+      </h2>
+    </div>
+  </section>
+
+  <!-- Accordion overview -->
+  <section data-animate class="px-6 pb-12">
+    <div class="max-w-[1200px] mx-auto">
+      <a
+        href="#browser"
+        class="group block border-t border-neutral-300 py-5 md:py-6"
+      >
+        <div class="flex items-start md:items-center justify-between gap-8">
+          <div class="flex items-center gap-4">
+            <img src="/utopia-icon-128.webp" alt="" class="h-8 w-8 shrink-0" />
+            <span class="text-2xl md:text-3xl font-bold">Utopian Browser</span>
+          </div>
+          <p
+            class="text-neutral-400 text-sm md:text-base max-w-md text-right hidden md:block leading-relaxed"
+          >
+            Eliminates redundant downloads. Built-in privacy and analytics.
+            Rewards for users and developers.
+          </p>
+        </div>
+      </a>
+      <a
+        href="#tribe"
+        class="group block border-t border-neutral-300 py-5 md:py-6"
+      >
+        <div class="flex items-start md:items-center justify-between gap-8">
+          <div class="flex items-center gap-4">
+            <img src="/tribe-icon-128.png" alt="" class="h-8 w-8 shrink-0" />
+            <span class="text-2xl md:text-3xl font-bold">Tribe SDK</span>
+          </div>
+          <p
+            class="text-neutral-400 text-sm md:text-base max-w-md text-right hidden md:block leading-relaxed"
+          >
+            Drop-in auth, analytics, feature flags, and feedback for any web
+            app.
+          </p>
+        </div>
+      </a>
+      <div class="border-t border-neutral-300"></div>
+
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="/download" class="btn-primary">Install the browser →</a>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary">Explore the SDK →</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- BROWSER: Native URLs     -->
+  <!-- ======================== -->
+
+  <section data-animate id="browser" class="bg-neutral-950 text-white">
+    <!-- Full-width image -->
+    <div>
+      <img
+        src="/library.jpg"
+        alt=""
+        class="w-full h-[40vh] md:h-[50vh] object-cover"
+      />
+    </div>
+
+    <div class="px-6 py-20 md:py-32">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+          <div>
+            <div class="flex items-center gap-3 mb-8">
+              <img src="/utopia-icon-128.webp" alt="" class="h-6 w-6" />
+              <p
+                class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
+              >
+                Utopian Browser
+              </p>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">
+              Native URLs
+            </h2>
+            <p class="text-neutral-400 text-lg md:text-xl leading-relaxed">
+              Every website you visit re-downloads React, fonts, and common
+              libraries from scratch. Native URLs resolve these from the
+              browser's built-in store instead of the network. One-line change,
+              90% smaller pages.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div class="bg-neutral-900 p-5 md:p-6">
+              <p
+                class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-3"
+              >
+                ESM
+              </p>
+              <code
+                class="font-mono text-sm md:text-base text-green-400 break-all"
+              >
+                import React from 'native:esm/react@18.2.0'
+              </code>
+            </div>
+            <div class="bg-neutral-900 p-5 md:p-6">
+              <p
+                class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-3"
+              >
+                CDN
+              </p>
+              <code
+                class="font-mono text-sm md:text-base text-green-400 break-all"
+              >
+                import 'native:cdn/react@16.14.0/umd/react.production.min.js'
+              </code>
+            </div>
+            <div class="bg-neutral-900 p-5 md:p-6">
+              <p
+                class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-3"
+              >
+                Font
+              </p>
+              <code
+                class="font-mono text-sm md:text-base text-green-400 break-all"
+              >
+                @import url('native:font/Montserrat')
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- URL Schemes -->
+    <div class="border-t border-neutral-800 px-6 py-12">
+      <div class="max-w-[1200px] mx-auto">
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-8"
+        >
+          Three URL schemes
+        </p>
+        <div class="grid sm:grid-cols-3 gap-12 md:gap-16">
+          <div>
+            <p class="font-mono text-xl md:text-2xl font-bold text-white mb-2">
+              native:esm/
+            </p>
+            <p class="text-neutral-500 text-sm">
+              ES module imports, resolved locally
+            </p>
+          </div>
+          <div>
+            <p class="font-mono text-xl md:text-2xl font-bold text-white mb-2">
+              native:cdn/
+            </p>
+            <p class="text-neutral-500 text-sm">
+              UMD and legacy script bundles
+            </p>
+          </div>
+          <div>
+            <p class="font-mono text-xl md:text-2xl font-bold text-white mb-2">
+              native:font/
+            </p>
+            <p class="text-neutral-500 text-sm">
+              Web fonts without network requests
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="border-t border-neutral-800 px-6 py-16 md:py-20">
+      <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+        <div>
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-8"
+          >
+            For users
+          </p>
+          <ul class="space-y-5">
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >Faster page loads with common code already on your device</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >Less bandwidth consumed on every site you visit</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >Lower data costs, especially on metered connections</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 mb-8"
+          >
+            For developers
+          </p>
+          <ul class="space-y-5">
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >One-line change: swap a URL, keep everything else</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >Same packages you already use from npm and CDNs</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <span class="text-green-400 font-mono text-sm shrink-0 mt-0.5"
+                >—</span
+              >
+              <span class="text-neutral-300 text-base md:text-lg"
+                >Dramatically smaller bundles without code splitting hacks</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- BROWSER: Analytics       -->
+  <!-- ======================== -->
+
+  <section data-animate>
+    <!-- Full-width image divider -->
+    <div>
+      <img
+        src="/lighthouse.jpg"
+        alt=""
+        class="w-full h-[40vh] md:h-[50vh] object-cover object-[center_30%]"
+      />
+    </div>
+
+    <div class="px-6 py-20 md:py-32">
+      <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+        <div>
+          <p
+            class="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-400 mb-8"
+          >
+            Browser-Level Analytics
+          </p>
+          <h2
+            class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-8"
+          >
+            Free analytics.<br />Zero tracking.
+          </h2>
+          <p class="text-neutral-500 text-lg md:text-xl leading-relaxed">
+            Usage data is collected at the browser level, anonymized before it
+            leaves the device, and published to a public dashboard. No scripts
+            to embed, no cookies to manage.
+          </p>
+        </div>
+
+        <div class="space-y-10 md:pt-8">
+          <div>
+            <p class="font-mono text-[11px] text-neutral-400 mb-2">01</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">
+              Browser-Level Collection
+            </h3>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              The browser captures pageviews, time on page, and native URL
+              package loads. No third-party scripts.
+            </p>
+          </div>
+          <div>
+            <p class="font-mono text-[11px] text-neutral-400 mb-2">02</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">
+              Eventual Consistency
+            </h3>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Data is anonymized on-device, then synced in batches. No real-time
+              tracking, no user-level profiles.
+            </p>
+          </div>
+          <div>
+            <p class="font-mono text-[11px] text-neutral-400 mb-2">03</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">Public Dashboard</h3>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Aggregated metrics are published openly. Developers and users see
+              the same data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- BROWSER: Rewards         -->
+  <!-- ======================== -->
+
+  <section data-animate class="border-t border-neutral-200">
+    <!-- Full-width image divider -->
+    <div>
+      <img
+        src="/mushroom.jpg"
+        alt=""
+        class="w-full h-[40vh] md:h-[50vh] object-cover"
+      />
+    </div>
+
+    <div class="px-6 py-20 md:py-32">
+      <div class="max-w-[1200px] mx-auto">
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          Browse and Earn
+        </h2>
+        <p
+          class="text-neutral-500 text-lg md:text-xl max-w-2xl leading-relaxed mb-16"
+        >
+          Attention has value. Utopian lets users and developers capture it
+          directly, without middlemen.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+          <div>
+            <p
+              class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-400 mb-8"
+            >
+              For users
+            </p>
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-2">
+                  Share Telemetry
+                </h3>
+                <p class="text-neutral-500 text-base leading-relaxed">
+                  Opt in to share anonymized browsing telemetry and earn rewards
+                  for contributing to the network's aggregate data.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-2">
+                  Subscription Cashback
+                </h3>
+                <p class="text-neutral-500 text-base leading-relaxed">
+                  $UTCC subscribers receive a portion of their subscription
+                  back, funded by the value the network creates.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p
+              class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-400 mb-8"
+            >
+              For developers
+            </p>
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-2">
+                  $UTCC Native Token
+                </h3>
+                <p class="text-neutral-500 text-base leading-relaxed">
+                  Earn $UTCC by creating value on the network. The token ties
+                  directly to real usage, not speculation.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-2">
+                  Track Real Adoption
+                </h3>
+                <p class="text-neutral-500 text-base leading-relaxed">
+                  Public telemetry shows exactly how your packages and sites are
+                  used. Real metrics, not vanity numbers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- TRIBE SDK                -->
+  <!-- ======================== -->
+
+  <section data-animate id="tribe">
+    <!-- Full-width image divider -->
+    <div>
+      <img
+        src="/pit.jpg"
+        alt=""
+        class="w-full h-[40vh] md:h-[50vh] object-cover"
+      />
+    </div>
+
+    <div class="px-6 py-20 md:py-32">
+      <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+        <div>
+          <div class="flex items-center gap-3 mb-8">
+            <img src="/tribe-icon-128.png" alt="" class="h-6 w-6" />
+            <p
+              class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-500"
+            >
+              Tribe SDK
+            </p>
+          </div>
+          <h2
+            class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-8"
+          >
+            Drop-in infrastructure for any web app
+          </h2>
+          <p class="text-neutral-500 text-lg md:text-xl leading-relaxed">
+            One package replaces auth, analytics, feature flags, announcements,
+            and feedback. No backend to manage. Works with React, Next.js, Vue,
+            Svelte, or vanilla JS.
+          </p>
+        </div>
+
+        <div class="space-y-0">
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">
+              Authentication
+            </p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Register, login, logout, magic links, passkeys. Full auth flow out
+              of the box.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">Analytics</p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Automatic pageview tracking and custom events. No scripts to
+              embed.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">
+              Feature Flags
+            </p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Ship with confidence, toggle features remotely. Roll out gradually
+              or kill instantly.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">
+              Announcements
+            </p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              In-app announcements with dismiss support. Keep users informed
+              without email.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">Feedback</p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              Collect user feedback with type categorization. Bug reports,
+              feature requests, general.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200 py-5">
+            <p class="font-mono text-[11px] text-green-500 mb-1">
+              API Keys & Sessions
+            </p>
+            <p class="text-neutral-500 text-base leading-relaxed">
+              User-managed API keys, active device list, session revocation.
+              Full control.
+            </p>
+          </div>
+          <div class="border-t border-neutral-200"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section data-animate class="relative px-6 py-24 md:py-40 overflow-hidden">
+    <img
+      src="/mountain.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-top"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-[1200px] mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
+        Start building the utopian way.
+      </h2>
+      <p
+        class="text-neutral-400 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
+      >
+        Install the browser for a faster, more private web. Explore the SDK to
+        ship your next app without managing infrastructure.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/download" class="btn-primary-light">Install the browser →</a>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary-light">Explore the Tribe SDK docs →</a
+        >
+      </div>
+    </div>
+  </section>
+</Base>

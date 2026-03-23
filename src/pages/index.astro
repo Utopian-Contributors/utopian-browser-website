@@ -1,0 +1,688 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const latestPost = posts[0];
+---
+
+<Base>
+  <!-- Hero — cinematic, centered -->
+  <section
+    class="relative min-h-screen flex items-end justify-center px-6 overflow-hidden"
+  >
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+      <source src="/tim.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 text-center max-w-4xl bottom-30">
+      <h1
+        class="text-5xl md:text-6xl font-medium text-white leading-[1.05] tracking-tight"
+      >
+        Making websites<br />90% smaller
+      </h1>
+      <p class="text-neutral-300 text-lg font-thin max-w-md mx-auto mt-6">
+        Common libraries ship inside the browser. Pages load instantly,
+        bandwidth drops to nothing.
+      </p>
+      <div class="mt-8">
+        <a href="/download" class="btn-primary-light">
+          Download the browser →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured blog post — dark editorial -->
+  {
+    latestPost && (
+      <section data-animate class="bg-neutral-950 text-white">
+        <div class="grid md:grid-cols-[1fr_1fr]">
+          <div class="p-10 md:p-16 flex flex-col justify-center">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400 mb-6">
+              Latest from our blog
+            </p>
+            <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-4">
+              {latestPost.data.title}
+            </h2>
+            <p class="text-neutral-400 text-lg mb-8 max-w-md leading-relaxed">
+              {latestPost.data.excerpt}
+            </p>
+            <a
+              href={`/blog/${latestPost.id}`}
+              class="btn-primary-light inline-flex self-start"
+            >
+              Read more →
+            </a>
+          </div>
+          <div class="relative min-h-[300px] md:min-h-[500px]">
+            <img
+              src={
+                latestPost.data.image ||
+                "https://placehold.co/800x600/1a1a1a/333333?text=."
+              }
+              alt=""
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Stats — bold, stacked -->
+  <section data-animate class="px-6 py-24 border-b border-neutral-100">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="space-y-2">
+        <div class="flex justify-center items-center gap-5">
+          <img
+            src="plane.jpg"
+            alt=""
+            class="h-28 w-28 border rounded object-cover hidden md:block"
+          />
+          <span
+            class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
+            >90%</span
+          >
+          <span class="text-neutral-500 text-lg font-mono md:text-3xl"
+            >Less redundant bandwidth</span
+          >
+        </div>
+        <div class="flex justify-center items-center gap-5">
+          <img
+            src="/shelf.jpg"
+            alt=""
+            class="h-28 w-28 border rounded object-cover hidden md:block"
+          />
+          <span
+            class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
+            >200+</span
+          >
+          <span class="text-neutral-500 text-lg font-mono md:text-3xl"
+            >Built-in libraries and fonts</span
+          >
+        </div>
+        <div class="flex justify-center items-center gap-5">
+          <img
+            src="dnd.jpg"
+            alt=""
+            class="h-28 w-28 border rounded object-cover hidden md:block"
+          />
+          <span
+            class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
+            >0</span
+          >
+          <span class="text-neutral-500 text-lg font-mono md:text-3xl"
+            >Tracking cookies by default</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two editorial feature cards with photography -->
+  <section data-animate class="grid md:grid-cols-2">
+    <a
+      href="/technology"
+      class="relative text-white p-10 md:p-16 flex flex-col justify-end min-h-[480px] md:min-h-[600px] group overflow-hidden"
+    >
+      <img
+        src="/library.jpg"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
+      >
+      </div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="/utopia-icon-128.webp" alt="" class="h-8 w-8" />
+          <p
+            class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
+          >
+            Utopian Browser
+          </p>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-bold leading-tight mb-3">
+          Common libraries live<br />inside the browser.
+        </h3>
+        <p class="text-neutral-300 mb-6 max-w-sm leading-relaxed">
+          Pages load instantly, bandwidth drops by 90%, and privacy is built in
+          from the start. No extensions, no configuration.
+        </p>
+        <span class="font-mono text-sm text-green-400 group-hover:underline">
+          Learn more →
+        </span>
+      </div>
+    </a>
+
+    <a
+      href="https://docs.utopian.build"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="relative text-white p-10 md:p-16 flex flex-col justify-end min-h-[480px] md:min-h-[600px] group overflow-hidden"
+    >
+      <img
+        src="/tools.jpg"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
+      >
+      </div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="/tribe-icon-128.png" alt="" class="h-8 w-8" />
+          <p
+            class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
+          >
+            Tribe SDK
+          </p>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-bold leading-tight mb-3">
+          One package. Zero<br />infrastructure to manage.
+        </h3>
+        <p class="text-neutral-300 mb-6 max-w-sm leading-relaxed">
+          Authentication, analytics, feature flags, announcements, and feedback
+          collection. Works with any web framework.
+        </p>
+        <span class="font-mono text-sm text-green-400 group-hover:underline">
+          Explore the docs →
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Mission editorial — photo + text -->
+  <section data-animate class="overflow-hidden">
+    <div class="grid md:grid-cols-2">
+      <div class="relative min-h-[400px] md:min-h-[600px]">
+        <img
+          src="/balloon.jpg"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div class="p-10 md:p-16 lg:p-20 flex flex-col justify-center">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-8"
+        >
+          The web is bloated. We're imagining<br /> a better one.
+        </h2>
+        <p class="text-neutral-500 text-lg leading-relaxed mb-6">
+          Over a billion people have limited or unreliable access to the
+          internet. Every wasted byte is bandwidth they can't afford. Every
+          redundant download is a page that never loads.
+        </p>
+        <p class="text-neutral-500 text-lg leading-relaxed mb-8">
+          By making websites 90% smaller at the browser level, Utopian doesn't
+          just improve speed for people with fast connections. It makes the web
+          accessible to the people who need it most.
+        </p>
+        <a href="/about" class="btn-secondary inline-flex self-start">
+          About Utopian →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-bleed promo — like "Parallel Society" -->
+  <section
+    data-animate
+    class="relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden"
+  >
+    <div
+      class="relative grid grid-cols-2 gap-40 z-10 px-6 py-20 max-w-[1400px] mx-auto w-full"
+    >
+      <div>
+        <img src="cranes.jpg" class="rounded-xl" />
+      </div>
+
+      <div class="max-w-2xl">
+        <p
+          class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400 mb-6"
+        >
+          Open contribution
+        </p>
+        <h2
+          class="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-6"
+        >
+          Build the future<br />with us.
+        </h2>
+        <p class="text-neutral-300 text-lg leading-relaxed mb-8 max-w-lg">
+          Open bounties for developers, designers, and community builders. Shape
+          the future of the web from the ground up.
+        </p>
+        <a href="/bounty-programs" class="btn-primary-light inline-flex">
+          Explore bounty programs →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack — Accordion -->
+  <section data-animate class="px-6 py-24 bg-neutral-50 border-y border-neutral-200">
+    <div class="max-w-[1400px] mx-auto">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4"
+      >
+        Technology
+      </p>
+      <h2
+        class="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl mb-4 leading-[1.1]"
+      >
+        Two products that work together to eliminate waste.
+      </h2>
+      <p class="text-neutral-500 text-lg max-w-2xl mb-16">
+        A browser that ships common libraries built in, and an SDK that replaces
+        the infrastructure you'd otherwise stitch together yourself.
+      </p>
+
+      <div class="border-t border-neutral-300">
+        <div class="accordion-item border-b border-neutral-300">
+          <button
+            class="accordion-trigger w-full flex items-center justify-between py-6 text-left group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="/utopia-icon-128.webp"
+                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
+              />
+              <span
+                class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
+              >
+                Utopian Browser
+              </span>
+            </div>
+            <svg
+              class="accordion-chevron w-5 h-5 text-neutral-400 transition-transform shrink-0"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 8l5 5 5-5"></path>
+            </svg>
+          </button>
+          <div class="accordion-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+            <div class="overflow-hidden">
+              <div class="pb-8">
+                <div class="grid md:grid-cols-2 gap-8 pl-14">
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    A Firefox-based browser with 200+ of the most common JavaScript
+                    libraries and fonts built in. Sites that depend on React, Vue,
+                    Lodash, or Google Fonts skip the download entirely.
+                  </p>
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    Encrypted DNS, zero tracking cookies, and no telemetry by
+                    default. Privacy isn't a feature toggle. It's the architecture.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-b border-neutral-300">
+          <button
+            class="accordion-trigger w-full flex items-center justify-between py-6 text-left group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="tribe-icon-128.png"
+                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
+              />
+              <span
+                class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
+              >
+                Tribe SDK
+              </span>
+            </div>
+            <svg
+              class="accordion-chevron w-5 h-5 text-neutral-400 transition-transform shrink-0"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 8l5 5 5-5"></path>
+            </svg>
+          </button>
+          <div class="accordion-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+            <div class="overflow-hidden">
+              <div class="pb-8">
+                <div class="grid md:grid-cols-2 gap-8 pl-14">
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    Drop-in infrastructure for modern web apps: authentication,
+                    analytics, feature flags, announcements, and feedback. One npm
+                    install, one init call.
+                  </p>
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    Framework-agnostic and self-hostable, with an open-source SDK
+                    and a managed cloud option. One package replaces five services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-b border-neutral-300">
+          <button
+            class="accordion-trigger w-full flex items-center justify-between py-6 text-left group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                src="/solana-icon.svg"
+                class="flex items-center justify-center p-2 w-10 h-10 bg-neutral-950 text-white text-sm font-bold shrink-0"
+              />
+              <span
+                class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
+              >
+                Rewards
+              </span>
+            </div>
+            <svg
+              class="accordion-chevron w-5 h-5 text-neutral-400 transition-transform shrink-0"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 8l5 5 5-5"></path>
+            </svg>
+          </button>
+          <div class="accordion-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+            <div class="overflow-hidden">
+              <div class="pb-8">
+                <div class="grid md:grid-cols-2 gap-8 pl-14">
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    Users earn for their attention. Developers earn for real usage.
+                    Built on a fair monetization model with no middlemen.
+                  </p>
+                  <p class="text-neutral-500 text-lg leading-relaxed">
+                    Bounty programs let contributors earn for their work, and open
+                    participation means value flows to the people who create it.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section data-animate class="px-6 py-24">
+    <div class="max-w-[1400px] mx-auto">
+      <h2
+        class="text-3xl md:text-5xl font-bold tracking-tight mb-4 max-w-3xl leading-[1.1]"
+      >
+        Use cases. <span class="text-neutral-400"
+          >Build on Utopian and serve your community.</span
+        >
+      </h2>
+      <p class="text-neutral-500 text-lg max-w-2xl mb-16">
+        Every wasted byte is bandwidth someone can't afford. These are the
+        problems we're solving.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0">
+        <div class="border border-neutral-200 transition-colors p-6">
+          <h3 class="text-lg font-bold mb-2">Low-bandwidth browsing</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed">
+            Pages that work on 2G connections. No bloat, no waiting. The web for
+            the other billion.
+          </p>
+        </div>
+        <div class="border border-neutral-200 transition-colors p-6 -ml-px">
+          <h3 class="text-lg font-bold mb-2">Privacy-first apps</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed">
+            Zero tracking cookies. Encrypted DNS. No data leaves the device
+            unless you say so.
+          </p>
+        </div>
+        <div class="border border-neutral-200 transition-colors p-6 -ml-px">
+          <h3 class="text-lg font-bold mb-2">Developer efficiency</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed">
+            Ship smaller bundles. Skip the CDN. Let the browser handle common
+            dependencies.
+          </p>
+        </div>
+        <div class="border border-neutral-200 transition-colors p-6 -ml-px">
+          <h3 class="text-lg font-bold mb-2">Fair monetization</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed">
+            Your browsing generates real value. Utopian makes sure you and the
+            developers you rely on actually capture it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community / Ecosystem grid -->
+  <section data-animate class="px-12 py-24 bg-neutral-950 text-white">
+    <div class="max-w-[1400px]">
+      <div class="flex items-end justify-between mb-16">
+        <div>
+          <p
+            class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400 mb-4"
+          >
+            Ecosystem
+          </p>
+          <h2
+            class="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1]"
+          >
+            The Utopian ecosystem
+          </h2>
+        </div>
+        <a
+          href="/technology"
+          class="hidden md:inline-flex font-mono text-sm text-neutral-400 hover:text-white transition-colors"
+        >
+          View all →
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/technology" class="group relative overflow-hidden">
+          <div class="flex items-center justify-center w-full aspect-[4/3]">
+            <img
+              src="./utopia-icon-128.webp"
+              alt=""
+              class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+          >
+          </div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-lg font-bold mb-1">Utopian Browser</h3>
+            <p class="text-neutral-400 text-sm">
+              Firefox-based, 200+ built-in libraries
+            </p>
+          </div>
+        </a>
+        <a
+          href="https://tribe.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden"
+        >
+          <div class="flex items-center justify-center w-full aspect-[4/3]">
+            <img
+              src="./tribe-icon-128.png"
+              alt=""
+              class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+          >
+          </div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-lg font-bold mb-1">Tribe SDK</h3>
+            <p class="text-neutral-400 text-sm">
+              Auth, analytics, feature flags, feedback
+            </p>
+          </div>
+        </a>
+        <a href="/bounty-programs" class="group relative overflow-hidden">
+          <div class="flex items-center justify-center w-full aspect-[4/3]">
+            <img
+              src="./solana-icon.svg"
+              alt=""
+              class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+          >
+          </div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-lg font-bold mb-1">Bounty Programs</h3>
+            <p class="text-neutral-400 text-sm">
+              Open contribution, fair rewards
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column bottom cards with images -->
+  <section data-animate class="grid md:grid-cols-2">
+    <div
+      class="relative text-white p-10 md:p-12 flex flex-col justify-between min-h-[400px] md:min-h-[480px] overflow-hidden"
+    >
+      <img
+        src="https://placehold.co/800x500/141414/242424?text=."
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"
+      >
+      </div>
+      <div class="relative z-10">
+        <p
+          class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400 mb-6"
+        >
+          Get involved
+        </p>
+        <h3 class="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+          Contribute<br />to the Ecosystem
+        </h3>
+        <p class="text-neutral-300 mb-8 max-w-sm leading-relaxed">
+          Open bounties for developers, designers, and community builders. Shape
+          the browser from the ground up.
+        </p>
+      </div>
+      <a
+        href="/bounty-programs"
+        class="relative z-10 btn-primary-light inline-flex self-start"
+      >
+        View bounties →
+      </a>
+    </div>
+    <div
+      class="relative p-10 md:p-16 flex flex-col justify-between min-h-[400px] md:min-h-[480px] overflow-hidden"
+    >
+      <img
+        src="https://placehold.co/800x500/f0f0f0/e0e0e0?text=."
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-white/70"></div>
+      <div class="relative z-10">
+        <p
+          class="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-400 mb-6"
+        >
+          Blog
+        </p>
+        <h3 class="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+          What we're building<br />and why it matters
+        </h3>
+        <p class="text-neutral-500 mb-8 max-w-sm leading-relaxed">
+          Technical deep dives, performance benchmarks, and the thinking behind
+          every product decision.
+        </p>
+      </div>
+      <a
+        href="/blog"
+        class="relative z-10 btn-secondary inline-flex self-start"
+      >
+        Read the blog →
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA — sunset background -->
+  <section data-animate class="relative px-6 py-32 overflow-hidden">
+    <img
+      src="/mountain.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-top"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-7xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">
+        A faster, fairer web starts here.
+      </h2>
+      <p class="text-white text-lg max-w-lg mx-auto mb-8">
+        Download Utopian Browser and start turning wasted bandwidth into real
+        value from day one.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/download" class="btn-primary-light">
+          Install the browser →
+        </a>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary-light"
+        >
+          Explore the Tribe SDK →
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  document.querySelectorAll(".accordion-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const item = trigger.closest(".accordion-item")!;
+      const content = item.querySelector(".accordion-content")!;
+      const chevron = item.querySelector(".accordion-chevron")!;
+      const isOpen = content.classList.contains("grid-rows-[1fr]");
+
+      // Close all
+      document.querySelectorAll(".accordion-item").forEach((other) => {
+        other.querySelector(".accordion-content")?.classList.remove("grid-rows-[1fr]");
+        other
+          .querySelector(".accordion-chevron")
+          ?.classList.remove("rotate-180");
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        content.classList.add("grid-rows-[1fr]");
+        chevron.classList.add("rotate-180");
+      }
+    });
+  });
+</script>
