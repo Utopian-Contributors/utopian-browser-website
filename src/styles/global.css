@@ -17,6 +17,16 @@ body {
 }
 
 /* Blog prose */
+.blog-prose {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.blog-prose img {
+  max-width: 100%;
+  height: auto;
+}
+
 .blog-prose p {
   color: var(--color-neutral-600);
   font-size: 1.125rem;
