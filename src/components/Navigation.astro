@@ -1,0 +1,316 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const latestPosts = posts.slice(0, 3);
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md"
+>
+  <div class="flex items-center justify-between px-6 py-4 max-w-[1400px] mx-auto">
+    <a href="/" class="flex gap-2 items-center">
+      <img src="/logo.png" class="h-8 w-8 rounded-sm" alt="Utopian" />
+      <span class="text-xl font-thin">Utopian Contributors</span>
+    </a>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="https://pump.fun/coin/HGTXnhgyast5fJKhMcE4VgyeEVWhYKEsHxpZtpjhrYqA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-block btn-secondary btn-sm"
+      >
+        Buy $UTCC
+      </a>
+      <a
+        href="/download"
+        class="hidden md:inline-block btn-primary btn-sm"
+      >
+        Download
+      </a>
+      <button
+        id="menu-toggle"
+        class="flex items-center justify-center w-8 h-8"
+        aria-label="Open menu"
+      >
+        <svg
+          width="20"
+          height="14"
+          viewBox="0 0 20 14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <line x1="0" y1="1" x2="20" y2="1" />
+          <line x1="0" y1="7" x2="20" y2="7" />
+          <line x1="0" y1="13" x2="20" y2="13" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Full-screen menu overlay -->
+<div
+  id="fullscreen-menu"
+  class="fixed inset-0 z-[100] bg-neutral-950 text-white hidden opacity-0 transition-opacity duration-300 ease-out overflow-y-auto"
+>
+  <!-- Header -->
+  <div class="border-b border-neutral-800">
+    <div class="flex items-center justify-between px-6 py-4 max-w-[1400px] mx-auto">
+      <a href="/" class="flex gap-2 items-center">
+        <img src="/logo.png" class="h-8 w-8 rounded-sm" alt="Utopian" />
+        <span class="text-xl font-thin">Utopian Contributors</span>
+      </a>
+      <div class="flex items-center gap-4">
+        <a
+          href="https://raydium.io/swap/?outputMint=UTCCbKMQQManiiSs7fjPBKoNBbZRzwFPmjrgmAaFhxP"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary-light btn-sm"
+        >
+          Buy $UTCC
+        </a>
+        <a href="/download" class="btn-primary-light btn-sm">
+          Download
+        </a>
+        <button
+          id="menu-close"
+          class="flex items-center justify-center w-8 h-8"
+          aria-label="Close menu"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <line x1="2" y1="2" x2="18" y2="18" />
+            <line x1="18" y1="2" x2="2" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column headers row -->
+  <div class="max-w-[1400px] mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-0 border-b border-neutral-800">
+      <div class="py-3">
+        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+          Sitemap
+        </p>
+      </div>
+      <div class="py-3 flex items-center justify-between">
+        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+          Latest news
+        </p>
+        <a
+          href="/blog"
+          class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 hover:text-white transition-colors"
+        >
+          Explore articles
+        </a>
+      </div>
+      <div class="py-3 pl-6 flex items-center justify-between">
+        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+          Tribe SDK
+        </p>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 hover:text-white transition-colors"
+        >
+          Explore the docs
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content grid -->
+  <div class="max-w-[1400px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-0">
+
+    <!-- Sitemap -->
+    <div>
+      <ul class="space-y-3 mb-8">
+        <li>
+          <a href="/technology" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">
+            Technology Stack
+          </a>
+        </li>
+        <li>
+          <a href="/bounty-programs" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">
+            Bounty Programs
+          </a>
+        </li>
+        <li>
+          <a href="/download" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">
+            Download
+          </a>
+        </li>
+        <li>
+          <a href="/about" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="/blog" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">
+            Blog
+          </a>
+        </li>
+      </ul>
+
+      <!-- Links with toggle -->
+      <div>
+        <button
+          id="links-toggle"
+          class="flex items-center gap-2 text-2xl md:text-3xl font-bold text-neutral-500 hover:text-neutral-300 transition-colors"
+        >
+          Links
+          <svg id="links-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" class="mt-1 transition-transform">
+            <path d="M4 6l4 4 4-4" />
+          </svg>
+        </button>
+        <div id="links-list" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+          <div class="overflow-hidden">
+            <ul class="mt-3 ml-1 space-y-2">
+              <li>
+                <a
+                  href="https://x.com/UtopianContrib"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xl text-neutral-600 hover:text-neutral-300 transition-colors"
+                >
+                  X
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Utopian-Contributors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xl text-neutral-600 hover:text-neutral-300 transition-colors"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.gg/utopian"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xl text-neutral-600 hover:text-neutral-300 transition-colors"
+                >
+                  Discord
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest posts -->
+    <div class="space-y-3">
+      {latestPosts.map((post) => (
+        <a
+          href={`/blog/${post.id}`}
+          class="flex gap-4 bg-neutral-900 hover:bg-neutral-800 transition-colors p-4"
+        >
+          <div class="flex-1 min-w-0">
+            <p class="font-mono text-[11px] text-green-400 mb-1.5">
+              {post.data.date.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              }).replace(/\//g, ".")}
+            </p>
+            <p class="font-bold text-sm leading-snug mb-1.5">
+              {post.data.title}
+            </p>
+            <p class="font-mono text-neutral-500 text-[11px] leading-relaxed line-clamp-2">
+              {post.data.excerpt}
+            </p>
+          </div>
+          {post.data.image && (
+            <img
+              src={post.data.image}
+              alt=""
+              class="w-20 h-20 object-cover shrink-0"
+            />
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- Featured: Tribe SDK -->
+    <div class="pl-6">
+      <a
+        href="https://tribe.utopian.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block"
+      >
+        <img
+          src="https://tribe.utopian.build/tribe-og-image.png"
+          alt="Tribe SDK"
+          class="w-full mb-5"
+        />
+        <p class="font-mono text-neutral-400 text-sm leading-relaxed mb-5">
+          Everything you need to add auth, analytics, feature flags, and feedback
+          to your app. One package that replaces scattered infrastructure.
+        </p>
+        <span class="btn-primary-light inline-flex">
+          Get Started →
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const menu = document.getElementById("fullscreen-menu");
+  const linksToggle = document.getElementById("links-toggle");
+  const linksList = document.getElementById("links-list");
+  const linksChevron = document.getElementById("links-chevron");
+
+  function openMenu() {
+    if (!menu) return;
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    menu.offsetHeight; // force reflow
+    menu.classList.remove("opacity-0");
+  }
+
+  function closeMenu() {
+    if (!menu) return;
+    menu.classList.add("opacity-0");
+    document.body.style.overflow = "";
+    menu.addEventListener("transitionend", function handler() {
+      menu.classList.add("hidden");
+      menu.removeEventListener("transitionend", handler);
+    });
+  }
+
+  toggle?.addEventListener("click", openMenu);
+  close?.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu?.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+
+  linksToggle?.addEventListener("click", () => {
+    linksList?.classList.toggle("grid-rows-[1fr]");
+    linksChevron?.classList.toggle("rotate-180");
+  });
+</script>

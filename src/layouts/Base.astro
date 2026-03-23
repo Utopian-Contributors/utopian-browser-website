@@ -1,0 +1,88 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} — Utopian` : "Utopian";
+const pageDescription =
+  description ??
+  "The browser that eliminates redundant downloads for a more efficient, private, and rewarding web.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/webp" href="/utopia-icon-128.webp" />
+    <meta property="og:image" content="/utopia-icon-128.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Utopian Blog"
+      href="/rss.xml"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Utopian Contributors LLC",
+      url: "https://utopian.build",
+      logo: "https://utopian.build/utopia-icon-128.webp",
+      sameAs: [
+        "https://x.com/UtopianContrib",
+        "https://github.com/Utopian-Contributors",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "ludwig@utopiancontrib.com",
+        contactType: "customer support",
+      },
+    })} />
+  </head>
+  <body class="font-sans bg-white text-neutral-950">
+    <Navigation />
+    <slot />
+    <Footer />
+
+    <script>
+      import { Tribe } from "@tribecloud/sdk";
+      new Tribe({
+        siteId: "cmmuqfheg00t60zo7ltf2hlfg",
+        _baseUrl: "https://api.tribe.utopian.build",
+        autoTrack: true,
+      });
+    </script>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
