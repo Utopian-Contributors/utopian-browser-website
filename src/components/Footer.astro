@@ -1,0 +1,101 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-neutral-200 px-6 py-12 md:py-16">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      <!-- Column 1 -->
+      <div class="space-y-3">
+        <a
+          href="https://x.com/UtopianContrib"
+          target="_blank"
+          rel="me noopener noreferrer"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          X
+        </a>
+        <a
+          href="https://discord.gg/utopian"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          Discord
+        </a>
+        <a
+          href="https://github.com/Utopian-Contributors"
+          target="_blank"
+          rel="me noopener noreferrer"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          GitHub
+        </a>
+        <a
+          href="/blog"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          Blog
+        </a>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="space-y-3">
+        <a
+          href="/about"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          About
+        </a>
+        <a
+          href="/bounty-programs"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          Bounty Programs
+        </a>
+        <a
+          href="https://docs.utopian.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          Tribe SDK Docs
+        </a>
+        <a
+          href="/rss.xml"
+          class="block font-mono text-sm text-neutral-950 hover:underline"
+        >
+          RSS
+        </a>
+      </div>
+
+      <!-- Column 3 (empty or future use) -->
+      <div></div>
+
+      <!-- Scroll to top -->
+      <div class="flex justify-end items-start">
+        <button
+          id="scroll-top"
+          class="w-10 h-10 flex items-center justify-center bg-neutral-100 hover:bg-neutral-200 transition-colors"
+          aria-label="Scroll to top"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 12V2M2 6l5-4 5 4" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-neutral-200">
+      <p class="font-mono text-xs text-neutral-400">
+        Utopian Contributors LLC {year}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("scroll-top")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

@@ -1,0 +1,81 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  date: Date;
+  author: string;
+  tags: string[];
+  image?: string;
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { title, date, author, tags, image, headings } = Astro.props;
+
+const formattedDate = date
+  .toLocaleDateString("en-US", { day: "2-digit", month: "short", year: "numeric" })
+  .toUpperCase();
+
+const wordCount = 1500; // approximate
+const readTime = Math.max(1, Math.ceil(wordCount / 250));
+---
+
+<Base title={title}>
+  <article class="pt-24 pb-16 px-6">
+    <div class="max-w-7xl mx-auto flex gap-12">
+      <!-- Table of Contents sidebar -->
+      <aside class="hidden lg:block w-64 shrink-0 sticky top-24 self-start">
+        <p class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4">
+          Contents
+        </p>
+        <nav class="space-y-2">
+          {headings
+            .filter((h) => h.depth === 2)
+            .map((h) => (
+              <a
+                href={`#${h.slug}`}
+                class="block text-sm text-neutral-500 hover:text-neutral-950 transition-colors border-l-2 border-transparent hover:border-neutral-950 pl-3 -ml-px"
+              >
+                {h.text}
+              </a>
+            ))}
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <div class="flex-1 max-w-2xl">
+        <p class="font-mono text-xs text-neutral-400 mb-4">
+          {readTime} MIN · {formattedDate}
+        </p>
+        <h1
+          class="text-3xl md:text-5xl font-bold text-neutral-950 leading-tight tracking-tight mb-4"
+        >
+          {title}
+        </h1>
+        <p class="text-sm text-neutral-400 mb-2">{author}</p>
+
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-4 mb-8">
+            {tags.map((tag) => (
+              <span class="text-xs font-mono border border-neutral-200 px-2 py-1">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {image && (
+          <img
+            src={image}
+            alt={title}
+            class="w-full mb-10"
+          />
+        )}
+
+        <div class="blog-prose">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>
