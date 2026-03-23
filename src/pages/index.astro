@@ -34,7 +34,7 @@ const latestPost = posts[0];
         bandwidth drops to nothing.
       </p>
       <div class="mt-8">
-        <a href="/download" class="btn-primary-light">
+        <a href="/download" class="btn-primary-light inline-flex">
           Download the browser →
         </a>
       </div>
@@ -242,9 +242,9 @@ const latestPost = posts[0];
     class="relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden"
   >
     <div
-      class="relative grid grid-cols-2 gap-40 z-10 px-6 py-20 max-w-[1400px] mx-auto w-full"
+      class="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 z-10 px-6 py-20 max-w-[1400px] mx-auto w-full"
     >
-      <div>
+      <div class="hidden md:block">
         <img src="cranes.jpg" class="rounded-xl" />
       </div>
 
@@ -646,14 +646,14 @@ const latestPost = posts[0];
         value from day one.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/download" class="btn-primary-light">
+        <a href="/download" class="btn-primary-light inline-flex">
           Install the browser →
         </a>
         <a
           href="https://docs.utopian.build"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-secondary-light"
+          class="btn-secondary-light inline-flex"
         >
           Explore the Tribe SDK →
         </a>

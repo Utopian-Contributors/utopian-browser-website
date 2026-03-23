@@ -80,7 +80,6 @@ body {
 
 /* Primary button — solid dark */
 .btn-primary {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: var(--color-neutral-950);
@@ -99,7 +98,6 @@ body {
 
 /* Secondary button — bordered outline */
 .btn-secondary {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid currentColor;
@@ -117,7 +115,6 @@ body {
 
 /* Button on dark backgrounds */
 .btn-primary-light {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: white;
@@ -134,7 +131,6 @@ body {
 }
 
 .btn-secondary-light {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -153,7 +149,6 @@ body {
 
 /* Keep old class as alias */
 .btn-bordered {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid currentColor;
