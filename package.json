@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && utopian-minify",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -17,8 +17,7 @@
     "astro": "6.0.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.18",
-    "utopian-minify": "^0.0.5"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
