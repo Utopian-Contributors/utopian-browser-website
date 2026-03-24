@@ -37,11 +37,11 @@ const latestPost = posts[0];
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative z-10 text-center max-w-4xl bottom-30">
       <h1
-        class="text-5xl md:text-6xl font-medium text-white leading-[1.05] tracking-tight"
+        class="text-5xl md:text-7xl font-thin text-white leading-[1.05] tracking-tight"
       >
         Making websites<br />90% smaller
       </h1>
-      <p class="text-neutral-300 text-lg font-thin max-w-md mx-auto mt-6">
+      <p class="text-neutral-300 text-sm font-mono font-thin max-w-md mx-auto mt-6">
         Common libraries ship inside the browser. Pages load instantly,
         bandwidth drops to nothing.
       </p>
@@ -85,7 +85,7 @@ const latestPost = posts[0];
                 format="webp"
                 quality={75}
                 class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+    
               />
             ) : (
               <img
@@ -113,7 +113,7 @@ const latestPost = posts[0];
             format="webp"
             quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
-            loading="lazy"
+
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -132,7 +132,7 @@ const latestPost = posts[0];
             format="webp"
             quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
-            loading="lazy"
+
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -151,7 +151,7 @@ const latestPost = posts[0];
             format="webp"
             quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
-            loading="lazy"
+
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -179,7 +179,7 @@ const latestPost = posts[0];
         format="webp"
         quality={75}
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        loading="lazy"
+
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
@@ -221,7 +221,7 @@ const latestPost = posts[0];
         format="webp"
         quality={75}
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        loading="lazy"
+
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
@@ -262,7 +262,7 @@ const latestPost = posts[0];
           format="webp"
           quality={75}
           class="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
+  
         />
       </div>
       <div class="p-10 md:p-16 lg:p-20 flex flex-col justify-center">
@@ -297,7 +297,7 @@ const latestPost = posts[0];
       class="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 z-10 px-6 py-20 max-w-[1400px] mx-auto w-full"
     >
       <div class="hidden md:block">
-        <Image src={cranesImg} alt="" widths={[640, 960]} sizes="(min-width: 768px) 50vw, 0px" format="webp" quality={75} class="rounded-xl" loading="lazy" />
+        <Image src={cranesImg} alt="" widths={[640, 960]} sizes="(min-width: 768px) 50vw, 0px" format="webp" quality={75} class="rounded-xl" />
       </div>
 
       <div class="max-w-2xl">
@@ -315,7 +315,7 @@ const latestPost = posts[0];
           Open bounties for developers, designers, and community builders. Shape
           the future of the web from the ground up.
         </p>
-        <a href="/bounty-programs" class="btn-primary-light inline-flex">
+        <a href="/bounty-programs" class="font-mono text-sm text-primary hover:underline">
           Explore bounty programs →
         </a>
       </div>
@@ -710,7 +710,6 @@ const latestPost = posts[0];
       format="webp"
       quality={75}
       class="absolute inset-0 w-full h-full object-cover object-top"
-      loading="lazy"
     />
     <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative z-10 max-w-7xl mx-auto text-center">
