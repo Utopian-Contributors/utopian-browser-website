@@ -1,6 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
+import planeImg from "../assets/images/plane.jpg";
+import shelfImg from "../assets/images/shelf.jpg";
+import dndImg from "../assets/images/dnd.jpg";
+import libraryImg from "../assets/images/library.jpg";
+import toolsImg from "../assets/images/tools.jpg";
+import balloonImg from "../assets/images/balloon.jpg";
+import cranesImg from "../assets/images/cranes.jpg";
+import mountainImg from "../assets/images/mountain.jpg";
+import utopiaIcon from "../assets/images/utopia-icon-128.webp";
+import tribeIcon from "../assets/images/tribe-icon-128.png";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
@@ -64,14 +76,24 @@ const latestPost = posts[0];
             </a>
           </div>
           <div class="relative min-h-[300px] md:min-h-[500px]">
-            <img
-              src={
-                latestPost.data.image ||
-                "https://placehold.co/800x600/1a1a1a/333333?text=."
-              }
-              alt=""
-              class="absolute inset-0 w-full h-full object-cover"
-            />
+            {latestPost.data.image ? (
+              <Image
+                src={latestPost.data.image}
+                alt=""
+                widths={[480, 768, 1024]}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                format="webp"
+                quality={75}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <img
+                src="https://placehold.co/800x600/1a1a1a/333333?text=."
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -83,10 +105,15 @@ const latestPost = posts[0];
     <div class="max-w-[1400px] mx-auto">
       <div class="space-y-2">
         <div class="flex justify-center items-center gap-5">
-          <img
-            src="plane.jpg"
+          <Image
+            src={planeImg}
             alt=""
+            widths={[224]}
+            sizes="112px"
+            format="webp"
+            quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
+            loading="lazy"
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -97,10 +124,15 @@ const latestPost = posts[0];
           >
         </div>
         <div class="flex justify-center items-center gap-5">
-          <img
-            src="/shelf.jpg"
+          <Image
+            src={shelfImg}
             alt=""
+            widths={[224]}
+            sizes="112px"
+            format="webp"
+            quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
+            loading="lazy"
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -111,10 +143,15 @@ const latestPost = posts[0];
           >
         </div>
         <div class="flex justify-center items-center gap-5">
-          <img
-            src="dnd.jpg"
+          <Image
+            src={dndImg}
             alt=""
+            widths={[224]}
+            sizes="112px"
+            format="webp"
+            quality={70}
             class="h-28 w-28 border rounded object-cover hidden md:block"
+            loading="lazy"
           />
           <span
             class="font-mono text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
@@ -134,10 +171,15 @@ const latestPost = posts[0];
       href="/technology"
       class="relative text-white p-10 md:p-16 flex flex-col justify-end min-h-[480px] md:min-h-[600px] group overflow-hidden"
     >
-      <img
-        src="/library.jpg"
+      <Image
+        src={libraryImg}
         alt=""
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        format="webp"
+        quality={75}
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading="lazy"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
@@ -145,7 +187,7 @@ const latestPost = posts[0];
       </div>
       <div class="relative z-10">
         <div class="flex items-center gap-3 mb-5">
-          <img src="/utopia-icon-128.webp" alt="" class="h-8 w-8" />
+          <Image src={utopiaIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8" />
           <p
             class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
           >
@@ -171,10 +213,15 @@ const latestPost = posts[0];
       rel="noopener noreferrer"
       class="relative text-white p-10 md:p-16 flex flex-col justify-end min-h-[480px] md:min-h-[600px] group overflow-hidden"
     >
-      <img
-        src="/tools.jpg"
+      <Image
+        src={toolsImg}
         alt=""
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        format="webp"
+        quality={75}
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading="lazy"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
@@ -182,7 +229,7 @@ const latestPost = posts[0];
       </div>
       <div class="relative z-10">
         <div class="flex items-center gap-3 mb-5">
-          <img src="/tribe-icon-128.png" alt="" class="h-8 w-8" />
+          <Image src={tribeIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8" />
           <p
             class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
           >
@@ -207,10 +254,15 @@ const latestPost = posts[0];
   <section data-animate class="overflow-hidden">
     <div class="grid md:grid-cols-2">
       <div class="relative min-h-[400px] md:min-h-[600px]">
-        <img
-          src="/balloon.jpg"
+        <Image
+          src={balloonImg}
           alt=""
+          widths={[480, 768, 1024]}
+          sizes="(min-width: 768px) 50vw, 100vw"
+          format="webp"
+          quality={75}
           class="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
       <div class="p-10 md:p-16 lg:p-20 flex flex-col justify-center">
@@ -245,7 +297,7 @@ const latestPost = posts[0];
       class="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 z-10 px-6 py-20 max-w-[1400px] mx-auto w-full"
     >
       <div class="hidden md:block">
-        <img src="cranes.jpg" class="rounded-xl" />
+        <Image src={cranesImg} alt="" widths={[640, 960]} sizes="(min-width: 768px) 50vw, 0px" format="webp" quality={75} class="rounded-xl" loading="lazy" />
       </div>
 
       <div class="max-w-2xl">
@@ -294,8 +346,13 @@ const latestPost = posts[0];
             class="accordion-trigger w-full flex items-center justify-between py-6 text-left group cursor-pointer"
           >
             <div class="flex items-center gap-4">
-              <img
-                src="/utopia-icon-128.webp"
+              <Image
+                src={utopiaIcon}
+                alt=""
+                width={40}
+                height={40}
+                format="webp"
+                quality={80}
                 class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
               />
               <span
@@ -338,8 +395,13 @@ const latestPost = posts[0];
             class="accordion-trigger w-full flex items-center justify-between py-6 text-left group cursor-pointer"
           >
             <div class="flex items-center gap-4">
-              <img
-                src="tribe-icon-128.png"
+              <Image
+                src={tribeIcon}
+                alt=""
+                width={40}
+                height={40}
+                format="webp"
+                quality={80}
                 class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
               />
               <span
@@ -499,9 +561,13 @@ const latestPost = posts[0];
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <a href="/technology" class="group relative overflow-hidden bg-gradient-to-br from-green-950/60 via-neutral-900 to-neutral-950">
           <div class="flex items-center justify-center w-full aspect-[4/3]">
-            <img
-              src="./utopia-icon-128.webp"
+            <Image
+              src={utopiaIcon}
               alt=""
+              width={192}
+              height={192}
+              format="webp"
+              quality={80}
               class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -523,9 +589,13 @@ const latestPost = posts[0];
           class="group relative overflow-hidden bg-gradient-to-br from-blue-950/60 via-neutral-900 to-neutral-950"
         >
           <div class="flex items-center justify-center w-full aspect-[4/3]">
-            <img
-              src="./tribe-icon-128.png"
+            <Image
+              src={tribeIcon}
               alt=""
+              width={192}
+              height={192}
+              format="webp"
+              quality={80}
               class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -632,10 +702,15 @@ const latestPost = posts[0];
 
   <!-- CTA — sunset background -->
   <section data-animate class="relative px-6 py-32 overflow-hidden">
-    <img
-      src="/mountain.jpg"
+    <Image
+      src={mountainImg}
       alt=""
+      widths={[640, 1024, 1440, 1920]}
+      sizes="100vw"
+      format="webp"
+      quality={75}
       class="absolute inset-0 w-full h-full object-cover object-top"
+      loading="lazy"
     />
     <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative z-10 max-w-7xl mx-auto text-center">

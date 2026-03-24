@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
+import logoImg from "../assets/images/logo.png";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
@@ -12,7 +15,7 @@ const latestPosts = posts.slice(0, 3);
 >
   <div class="flex items-center justify-between px-6 py-4 max-w-[1400px] mx-auto">
     <a href="/" class="flex gap-2 items-center">
-      <img src="/logo.png" class="h-8 w-8 rounded-sm" alt="Utopian" />
+      <Image src={logoImg} alt="Utopian" width={64} height={64} format="webp" quality={80} class="h-8 w-8 rounded-sm" />
       <span class="text-xl font-thin">Utopian Contributors</span>
     </a>
 
@@ -62,7 +65,7 @@ const latestPosts = posts.slice(0, 3);
   <div class="border-b border-neutral-800">
     <div class="flex items-center justify-between px-6 py-4 max-w-[1400px] mx-auto">
       <a href="/" class="flex gap-2 items-center">
-        <img src="/logo.png" class="h-8 w-8 rounded-sm" alt="Utopian" />
+        <Image src={logoImg} alt="Utopian" width={64} height={64} format="webp" quality={80} class="h-8 w-8 rounded-sm" />
         <span class="text-xl font-thin">Utopian Contributors</span>
       </a>
       <div class="flex items-center gap-4">
@@ -239,10 +242,15 @@ const latestPosts = posts.slice(0, 3);
             </p>
           </div>
           {post.data.image && (
-            <img
+            <Image
               src={post.data.image}
               alt=""
+              widths={[160]}
+              sizes="80px"
+              format="webp"
+              quality={70}
               class="w-20 h-20 object-cover shrink-0"
+              loading="lazy"
             />
           )}
         </a>

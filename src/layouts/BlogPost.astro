@@ -1,12 +1,14 @@
 ---
 import Base from "./Base.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   title: string;
   date: Date;
   author: string;
   tags: string[];
-  image?: string;
+  image?: ImageMetadata;
   headings: { depth: number; slug: string; text: string }[];
 }
 
@@ -65,10 +67,15 @@ const readTime = Math.max(1, Math.ceil(wordCount / 250));
         )}
 
         {image && (
-          <img
+          <Image
             src={image}
             alt={title}
+            widths={[640, 1024]}
+            sizes="(min-width: 1024px) 672px, 100vw"
+            format="webp"
+            quality={75}
             class="w-full mb-10"
+            loading="lazy"
           />
         )}
 

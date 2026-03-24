@@ -1,5 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+
+import ludwigImg from "../assets/images/ludwig.jpg";
 ---
 
 <Base title="About" description="Utopian Contributors LLC builds open technology for a more efficient web.">
@@ -45,10 +48,15 @@ import Base from "../layouts/Base.astro";
       </p>
 
       <div class="flex flex-col sm:flex-row items-start gap-8">
-        <img
-          src="/ludwig.jpg"
+        <Image
+          src={ludwigImg}
           alt="Ludwig Schubert"
+          widths={[224]}
+          sizes="112px"
+          format="webp"
+          quality={75}
           class="w-28 h-28 object-cover grayscale"
+          loading="lazy"
         />
         <div>
           <h3 class="text-xl font-bold mb-1">Ludwig Schubert</h3>

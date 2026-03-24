@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -43,10 +44,15 @@ const posts = (await getCollection("blog")).sort(
               </div>
             </div>
             {post.data.image && (
-              <img
+              <Image
                 src={post.data.image}
                 alt={post.data.title}
+                widths={[224, 448]}
+                sizes="(min-width: 768px) 224px, 100vw"
+                format="webp"
+                quality={75}
                 class="w-full md:w-56 h-36 object-cover shrink-0"
+                loading="lazy"
               />
             )}
           </a>
