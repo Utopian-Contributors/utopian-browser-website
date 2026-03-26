@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title} | Utopian` : "Utopian";
+const pageTitle = title ? `${title} | Utopian Contributors` : "Utopian Contributors";
 const pageDescription =
   description ??
   "The browser that eliminates redundant downloads for a more efficient, private, and rewarding web.";
@@ -22,9 +22,9 @@ const pageDescription =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-    <link rel="apple-touch-icon" href="/utopia-icon-128.webp" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:image" content="/utopia-icon-128.webp" />
 
     <link
