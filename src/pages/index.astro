@@ -11,8 +11,8 @@ import toolsImg from "../assets/images/tools.jpg";
 import balloonImg from "../assets/images/balloon.jpg";
 import cranesImg from "../assets/images/cranes.jpg";
 import mountainImg from "../assets/images/mountain.jpg";
-import utopiaIcon from "../assets/images/utopia-icon-128.webp";
-import tribeIcon from "../assets/images/tribe-icon-128.png";
+import utopiaIcon from "../assets/images/utopian-icon-128.svg";
+import tribeIcon from "../assets/images/tribe-icon-128.svg";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
@@ -187,7 +187,7 @@ const latestPost = posts[0];
       </div>
       <div class="relative z-10">
         <div class="flex items-center gap-3 mb-5">
-          <Image src={utopiaIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8" />
+          <Image src={utopiaIcon} alt="" width={32} height={32} format="svg" quality={100} class="h-8 w-8" />
           <p
             class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
           >
@@ -229,7 +229,7 @@ const latestPost = posts[0];
       </div>
       <div class="relative z-10">
         <div class="flex items-center gap-3 mb-5">
-          <Image src={tribeIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8" />
+          <Image src={tribeIcon} alt="" width={32} height={32} format="svg" quality={100} class="h-8 w-8" />
           <p
             class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
           >
@@ -351,9 +351,9 @@ const latestPost = posts[0];
                 alt=""
                 width={40}
                 height={40}
-                format="webp"
-                quality={80}
-                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
+                format="svg"
+                quality={100}
+                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded text-sm font-bold shrink-0"
               />
               <span
                 class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
@@ -401,9 +401,9 @@ const latestPost = posts[0];
                 alt=""
                 width={40}
                 height={40}
-                format="webp"
-                quality={80}
-                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded-full text-sm font-bold shrink-0"
+                format="svg"
+                quality={100}
+                class="flex items-center justify-center w-10 h-10 bg-neutral-950 text-white rounded text-sm font-bold shrink-0"
               />
               <span
                 class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
@@ -448,7 +448,7 @@ const latestPost = posts[0];
             <div class="flex items-center gap-4">
               <img
                 src="/solana-icon.svg"
-                class="flex items-center justify-center p-2 w-10 h-10 bg-neutral-950 rounded-md text-white text-sm font-bold shrink-0"
+                class="flex items-center justify-center p-2 w-10 h-10 bg-neutral-950 rounded text-white text-sm font-bold shrink-0"
               />
               <span
                 class="text-xl md:text-2xl font-bold group-hover:text-green-600 transition-colors"
@@ -569,8 +569,8 @@ const latestPost = posts[0];
               alt=""
               width={192}
               height={192}
-              format="webp"
-              quality={80}
+              format="svg"
+              quality={100}
               class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -597,8 +597,8 @@ const latestPost = posts[0];
               alt=""
               width={192}
               height={192}
-              format="webp"
-              quality={80}
+              format="svg"
+              quality={100}
               class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -610,25 +610,6 @@ const latestPost = posts[0];
             <h3 class="text-lg font-bold mb-1">Tribe SDK</h3>
             <p class="text-neutral-400 text-sm">
               Auth, payments, analytics, security
-            </p>
-          </div>
-        </a>
-        <a href="/bounty-programs" class="group relative overflow-hidden bg-gradient-to-br from-amber-950/60 via-neutral-900 to-neutral-950">
-          <div class="flex items-center justify-center w-full aspect-[4/3]">
-            <img
-              src="./solana-icon.svg"
-              alt=""
-              class="mx-auto mb-8 h-24 w-24 group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-          >
-          </div>
-          <div class="absolute bottom-0 left-0 p-6">
-            <h3 class="text-lg font-bold mb-1">Bounty Programs</h3>
-            <p class="text-neutral-400 text-sm">
-              Open contribution, fair rewards
             </p>
           </div>
         </a>
