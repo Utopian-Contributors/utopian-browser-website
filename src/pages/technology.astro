@@ -1,15 +1,15 @@
 ---
-import Base from "../layouts/Base.astro";
 import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
 
 import farmerImg from "../assets/images/farmer.jpg";
 import libraryImg from "../assets/images/library.jpg";
 import lighthouseImg from "../assets/images/lighthouse.jpg";
+import mountainImg from "../assets/images/mountain.jpg";
 import mushroomImg from "../assets/images/mushroom.jpg";
 import pitImg from "../assets/images/pit.jpg";
-import mountainImg from "../assets/images/mountain.jpg";
-import utopiaIcon from "../assets/images/utopia-icon-128.webp";
-import tribeIcon from "../assets/images/tribe-icon-128.png";
+import tribeIcon from "../assets/images/tribe-icon-128.svg";
+import utopiaIcon from "../assets/images/utopian-icon-128.svg";
 ---
 
 <Base title="Technology Stack">
@@ -83,7 +83,7 @@ import tribeIcon from "../assets/images/tribe-icon-128.png";
       >
         <div class="flex items-start md:items-center justify-between gap-8">
           <div class="flex items-center gap-4">
-            <Image src={utopiaIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8 shrink-0" />
+            <Image src={utopiaIcon} alt="" width={32} height={32} format="webp" quality={100} class="h-8 w-8 shrink-0" />
             <span class="text-2xl md:text-3xl font-bold">Utopian Browser</span>
           </div>
           <p
@@ -100,7 +100,7 @@ import tribeIcon from "../assets/images/tribe-icon-128.png";
       >
         <div class="flex items-start md:items-center justify-between gap-8">
           <div class="flex items-center gap-4">
-            <Image src={tribeIcon} alt="" width={32} height={32} format="webp" quality={80} class="h-8 w-8 shrink-0" />
+            <Image src={tribeIcon} alt="" width={32} height={32} format="svg" quality={100} class="h-8 w-8 shrink-0" />
             <span class="text-2xl md:text-3xl font-bold">Tribe SDK</span>
           </div>
           <p
@@ -148,7 +148,7 @@ import tribeIcon from "../assets/images/tribe-icon-128.png";
         <div class="grid md:grid-cols-2 gap-16 md:gap-24">
           <div>
             <div class="flex items-center gap-3 mb-8">
-              <Image src={utopiaIcon} alt="" width={24} height={24} format="webp" quality={80} class="h-6 w-6" />
+              <Image src={utopiaIcon} alt="" width={24} height={24} format="webp" quality={100} class="h-6 w-6" />
               <p
                 class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-400"
               >
@@ -502,7 +502,7 @@ import tribeIcon from "../assets/images/tribe-icon-128.png";
       <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
         <div>
           <div class="flex items-center gap-3 mb-8">
-            <Image src={tribeIcon} alt="" width={24} height={24} format="webp" quality={80} class="h-6 w-6" />
+            <Image src={tribeIcon} alt="" width={24} height={24} format="svg" quality={100} class="h-6 w-6" />
             <p
               class="font-mono text-[11px] uppercase tracking-[0.2em] text-green-500"
             >
