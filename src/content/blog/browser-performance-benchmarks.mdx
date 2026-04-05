@@ -25,21 +25,25 @@ The cost isn't just bandwidth. Every redundant download means additional DNS loo
 
 At the infrastructure level, CDN providers serve petabytes of the same library files every day. That's server capacity, network transit, and energy consumption spent delivering identical bytes to billions of browsers worldwide.
 
-## How Native URLs eliminate the waste
+## How Native URLs address this
 
-Utopian Browser introduces <a href="/technology" class="text-green-500 hover:text-green-600">Native URLs</a>, a new URL scheme that resolves common packages directly from the browser's built-in store. Instead of fetching `https://cdn.jsdelivr.net/react@18.2.0/umd/react.production.min.js`, a site can reference `native:cdn/react@18.2.0/umd/react.production.min.js` and get the same code instantly, with zero network overhead.
+Utopian Browser introduces <a href="/technology" class="text-green-500 hover:text-green-600">Native URLs</a>, a URL scheme that resolves common packages from the browser's local store instead of the network. Instead of fetching `https://cdn.jsdelivr.net/react@18.2.0/umd/react.production.min.js`, a site can reference `native:cdn/react@18.2.0/umd/react.production.min.js` and get the same code instantly, with zero network overhead.
 
-In internal benchmarks across pages and apps of varying size, Native URLs reduced JavaScript transfer sizes by an average of 80%. For some single-page applications with heavy framework dependencies, the reduction exceeded 90%.
+The mechanism is straightforward: Utopian ships with a store of widely-used JavaScript packages and Google Fonts. When a site uses a `native:esm/`, `native:cdn/`, or `native:font/` URL, the browser resolves it locally. If the package is in the store, no network request is made. The developer changes one line of code, and every user with the browser benefits.
 
-## The compound effect
+We're still early. The store covers a curated set of the most common packages, and we're expanding it based on real-world usage data. The savings depend on how many of a site's dependencies happen to be in the store, but for sites that lean on popular frameworks and fonts, the reduction in transfer size is substantial.
 
-The savings grow over time. A user who browses 50 sites per day with Utopian avoids roughly 400 MB of redundant downloads per month. Scale that across a user base and you're looking at terabytes of bandwidth saved, measurably lower energy consumption, and a faster web for everyone involved.
+## Why this matters beyond speed
 
-The web doesn't need to stay the way it is. This waste exists because browsers never shared common resources across sites. Utopian fixes that at the browser level, where it should have been fixed all along.
+There's a broader point worth making. The web was designed for a world where bandwidth was the constraint and compute was expensive. Today, the opposite is true for most of the developed world: devices are powerful but networks are shared, metered, and often unreliable.
+
+But for a large portion of the planet, bandwidth is still the bottleneck. Over a billion people access the internet on connections where every kilobyte counts. Eliminating redundant downloads isn't just a performance optimization for fast connections, it's the difference between a page that loads and one that doesn't.
+
+And there's a more speculative angle: the same architecture that works for bandwidth-constrained environments on Earth works even better in scenarios with extreme latency. Satellite internet, remote research stations, or someday, networks between planets. When you minimize what needs to travel over the wire, you make the web work in places it was never designed for.
 
 <div class="mt-12 bg-neutral-100 p-8">
-  <p class="font-semibold text-neutral-950 mb-2">See how much faster your web can be.</p>
+  <p class="font-semibold text-neutral-950 mb-2">Try Native URLs in your project.</p>
   <a href="/download" class="btn-bordered text-neutral-950">Download →</a>
 </div>
 
-<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do websites download the same JavaScript libraries repeatedly?","acceptedAnswer":{"@type":"Answer","text":"Each website bundles its own copy of common libraries like React, Lodash, or jQuery. Even if you visited ten sites using React 18, your browser downloaded ten separate copies because standard HTTP caching doesn't share resources across different origins."}},{"@type":"Question","name":"How much bandwidth is wasted on redundant downloads?","acceptedAnswer":{"@type":"Answer","text":"HTTP Archive data shows the median website transfers over 2.2 MB of JavaScript. Across the top 10,000 sites, roughly 60% of that JavaScript consists of libraries shared across multiple sites, resulting in hundreds of megabytes of redundant transfers per user per month."}},{"@type":"Question","name":"How does Utopian Browser reduce page sizes by 90%?","acceptedAnswer":{"@type":"Answer","text":"Utopian Browser uses Native URLs to serve common libraries directly from the browser's built-in store instead of downloading them from the network. This eliminates redundant transfers for frameworks, fonts, and CDN-hosted packages."}}]})} />
+<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do websites download the same JavaScript libraries repeatedly?","acceptedAnswer":{"@type":"Answer","text":"Each website bundles its own copy of common libraries like React, Lodash, or jQuery. Even if you visited ten sites using React 18, your browser downloaded ten separate copies because standard HTTP caching doesn't share resources across different origins."}},{"@type":"Question","name":"How much bandwidth is wasted on redundant downloads?","acceptedAnswer":{"@type":"Answer","text":"HTTP Archive data shows the median website transfers over 2.2 MB of JavaScript. Across the top 10,000 sites, a significant portion consists of libraries shared across multiple sites, resulting in substantial redundant transfers per user per month."}},{"@type":"Question","name":"How does Utopian Browser reduce page sizes?","acceptedAnswer":{"@type":"Answer","text":"Utopian Browser uses Native URLs to serve common libraries from the browser's local store instead of downloading them from the network. This eliminates redundant transfers for popular frameworks, fonts, and CDN-hosted packages."}}]})} />
